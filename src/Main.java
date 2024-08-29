@@ -33,14 +33,12 @@ public class Main {
                 Element noteElement = (Element) noteList.item(i);
 
                 // Extract information from the "pitch" child element if it exists
-                Element pitchElement = (Element) noteElement.getElementsByTagName("pitch").item(0);
-                if (pitchElement != null) {
-                    String step = pitchElement.getElementsByTagName("step").item(0).getTextContent();
-                    String octave = pitchElement.getElementsByTagName("octave").item(0).getTextContent();
-                    System.out.println("Note " + (i+1) + ": " + step + octave);
-                } else {
-                    System.out.println("Note " + (i+1) + ": No pitch information");
-                }
+                String step = getElementTextContent(noteElement, "step");
+                System.out.println("Note " + (i + 1) + ": step - " + step);
+
+                String octave = getElementTextContent(noteElement, "octave");
+                System.out.println("Note " + (i + 1) + ": octave - " + octave);
+
                 // Extract and print duration
                 String duration = getElementTextContent(noteElement, "duration");
                 System.out.println("Note " + (i + 1) + ": Duration - " + duration);
