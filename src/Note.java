@@ -3,7 +3,15 @@ public class Note {
     private int duration;
     private String type;
     private String voice;
-    private String Stem;
+    private String stem;
+
+    public Note(String step, int duration, String type, String voice, String stem) {
+        this.step = step;
+        this.type = type;
+        this.voice = voice;
+        this.stem = stem;
+    }
+
     public String getStep() {
         return step;
     }

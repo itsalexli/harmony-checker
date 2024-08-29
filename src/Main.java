@@ -30,6 +30,7 @@ public class Main {
             // Access elements by tag name
             NodeList noteList = document.getElementsByTagName("note");
             for (int i = 0; i < noteList.getLength(); i++) {
+
                 Element noteElement = (Element) noteList.item(i);
 
                 // Extract information from the "pitch" child element if it exists
@@ -40,7 +41,7 @@ public class Main {
                 System.out.println("Note " + (i + 1) + ": octave - " + octave);
 
                 // Extract and print duration
-                String duration = getElementTextContent(noteElement, "duration");
+                int duration = Integer.parseInt(getElementTextContent(noteElement, "duration"));
                 System.out.println("Note " + (i + 1) + ": Duration - " + duration);
 
                 // Extract and print type
@@ -60,6 +61,8 @@ public class Main {
                 System.out.println("Note " + (i + 1) + ": Stem - " + stem);
 
                 System.out.println(); // For readability between notes
+
+                Note newNote = new Note(step, duration, type, voice, stem);
             }
         }
         catch (ParserConfigurationException e){
