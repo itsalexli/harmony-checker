@@ -27,42 +27,34 @@ public class Main {
             Document document = builder.parse(xmlFile);
             document.getDocumentElement().normalize();
 
-            // Access elements by tag name
+
+            //Access measures by tag name
+
+
+
+
+
+
+
+
+
+
+
+            // Access Note by tag name
             NodeList noteList = document.getElementsByTagName("note");
             for (int i = 0; i < noteList.getLength(); i++) {
-
                 Element noteElement = (Element) noteList.item(i);
-
-                // Extract information from the "pitch" child element if it exists
+                int staff = Integer.parseInt(getElementTextContent(noteElement, "staff"));
                 String step = getElementTextContent(noteElement, "step");
-                System.out.println("Note " + (i + 1) + ": step - " + step);
-
-                String octave = getElementTextContent(noteElement, "octave");
-                System.out.println("Note " + (i + 1) + ": octave - " + octave);
-
-                // Extract and print duration
+                int octave = Integer.parseInt(getElementTextContent(noteElement, "octave"));
                 int duration = Integer.parseInt(getElementTextContent(noteElement, "duration"));
-                System.out.println("Note " + (i + 1) + ": Duration - " + duration);
-
-                // Extract and print type
                 String type = getElementTextContent(noteElement, "type");
-                System.out.println("Note " + (i + 1) + ": Type - " + type);
-
-                // Extract and print voice
                 String voice = getElementTextContent(noteElement, "voice");
-                System.out.println("Note " + (i + 1) + ": Voice - " + voice);
-
-                // Extract and print staff
-                String staff = getElementTextContent(noteElement, "staff");
-                System.out.println("Note " + (i + 1) + ": Staff - " + staff);
-
-                // Extract and print stem direction
                 String stem = getElementTextContent(noteElement, "stem");
-                System.out.println("Note " + (i + 1) + ": Stem - " + stem);
 
-                System.out.println(); // For readability between notes
-
-                Note newNote = new Note(step, duration, type, voice, stem);
+                //Store into Note obj
+                Note newNote = new Note(staff, step, octave, duration, type, voice, stem);
+                System.out.println(newNote);
             }
         }
         catch (ParserConfigurationException e){
