@@ -1,0 +1,45 @@
+.box {
+  display: flex;
+  flex-direction: row;
+}
+.left-side {
+  flex: 3;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0px;
+  overflow-x: auto;
+}
+.right-side {
+  flex: 2;
+  background-color: lightpink;
+}
+
+.barline-container {
+  position: relative;
+  background-color: green;
+  width: 100px;
+}
+
+.div {
+  position: absolute;
+  background-color: lightgreen;
+}
+
+.bar-item {
+  position: relative;
+  margin: 0;
+  width: 25%;
+  height: auto;
+  margin-top: 30px;
+}
+
+.whole-item {
+  position: absolute;
+  margin: 0;
+  width: 1.5%;
+  height: auto;
+  margin-top: 30px;
+  padding: 0;
+}
